@@ -1,5 +1,5 @@
 <div class="tags__section">
-    <span class="tags__title">Discover more of what matters to you</span>
+    <span class="tags__title">УЗНАЙТЕ БОЛЬШЕ О ВАЖНОМ ДЛЯ ВАС</span>
 
     <div class="tags__block">
         <span class="tag">Self</span>

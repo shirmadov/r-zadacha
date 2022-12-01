@@ -15,11 +15,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         News::factory(10)->create();
+//         News::factory(10)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        $this->call([
+//           TagSeeder::class,
+           TagNewsSeeder::class
+        ]);
     }
 }
