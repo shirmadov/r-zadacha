@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\News;
 use App\Models\TagNews;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -46,8 +47,7 @@ class TagSeeder extends Seeder
             ]);
         }
 
-
-
+        News::factory(20)->create();
 
     }
 }

@@ -18,7 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             TagSeeder::class,
-            News::factory(20)->create(),
             TagNewsSeeder::class
         ]);
     }
