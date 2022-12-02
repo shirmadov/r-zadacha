@@ -15,21 +15,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-
-//        \DB::table('roles')->insert([
-//            ['role_name'=>'writer'],
-//            ['role_name'=>'reader'],
-//        ]);
-//         News::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-
         $this->call([
-           TagSeeder::class,
-//           TagNewsSeeder::class
+            UserSeeder::class,
+            TagSeeder::class,
+            News::factory(20)->create(),
+            TagNewsSeeder::class
         ]);
     }
 }

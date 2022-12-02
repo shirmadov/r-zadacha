@@ -13,8 +13,8 @@
                     @include('news.module.news_text')
                 </div>
 
-                <input class="row__count js__row__count" type="text" value="{{count($news)}}">
-                <input class="all__count js__all__count" type="text" value="{{$all}}">
+                <input class="row__count js__row__count" type="hidden" value="{{count($news)}}">
+                <input class="all__count js__all__count" type="hidden" value="{{$all}}">
 
                 <span class="view__more__btn js__view__more__btn">Показать еще</span>
             </div>

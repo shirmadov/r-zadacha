@@ -49,83 +49,13 @@
 
                             <div class="news__comments__list">
                                 <ul class="news__comment__ul">
-
                                     @foreach($comments as $comment)
                                         @include('news.module.comments')
                                     @endforeach
-
-
-                                    {{--        <li class="news__comment__li">--}}
-                                    {{--            <span class="news__comment__author">Sapa Shirmadov</span>--}}
-                                    {{--            <div class="news__comment__text">--}}
-                                    {{--                <p>That's amazing news</p>--}}
-                                    {{--                <span class="news__comment__date">Jan 25, 2022</span>--}}
-                                    {{--            </div>--}}
-                                    {{--        </li>--}}
-
-                                    {{--        <li class="news__comment__li">--}}
-                                    {{--            <span class="news__comment__author">Sapa Shirmadov</span>--}}
-                                    {{--            <div class="news__comment__text">--}}
-                                    {{--                <p style="padding: 0">That's amazing news</p>--}}
-                                    {{--                <span class="news__comment__date">Jan 25, 2022</span>--}}
-                                    {{--            </div>--}}
-                                    {{--        </li>--}}
-
-                                    {{--        <li class="news__comment__li">--}}
-                                    {{--            <span class="news__comment__author">Sapa Shirmadov</span>--}}
-                                    {{--            <div class="news__comment__text">--}}
-                                    {{--                <p>That's amazing news</p>--}}
-                                    {{--                <span class="news__comment__date">Jan 25, 2022</span>--}}
-                                    {{--            </div>--}}
-                                    {{--        </li>--}}
-
-                                    {{--        <li class="news__comment__li">--}}
-                                    {{--            <span class="news__comment__author">Sapa Shirmadov</span>--}}
-                                    {{--            <div class="news__comment__text">--}}
-                                    {{--                <p>That's amazing news</p>--}}
-                                    {{--                <span class="news__comment__date">Jan 25, 2022</span>--}}
-                                    {{--            </div>--}}
-                                    {{--        </li>--}}
-
-                                    {{--        <li class="news__comment__li">--}}
-                                    {{--            <span class="news__comment__author">Sapa Shirmadov</span>--}}
-                                    {{--            <div class="news__comment__text">--}}
-                                    {{--                <p>That's amazing news</p>--}}
-                                    {{--                <span class="news__comment__date">Jan 25, 2022</span>--}}
-                                    {{--            </div>--}}
-                                    {{--        </li>--}}
-
-                                    {{--        <li class="news__comment__li">--}}
-                                    {{--            <span class="news__comment__author">Sapa Shirmadov</span>--}}
-                                    {{--            <div class="news__comment__text">--}}
-                                    {{--                <p>That's amazing news</p>--}}
-                                    {{--                <span class="news__comment__date">Jan 25, 2022</span>--}}
-                                    {{--            </div>--}}
-                                    {{--        </li>--}}
-
-                                    {{--        <li class="news__comment__li">--}}
-                                    {{--            <span class="news__comment__author">Sapa Shirmadov</span>--}}
-                                    {{--            <div class="news__comment__text">--}}
-                                    {{--                <p>That's amazing news</p>--}}
-                                    {{--                <span class="news__comment__date">Jan 25, 2022</span>--}}
-                                    {{--            </div>--}}
-                                    {{--        </li>--}}
-
-                                    {{--        <li class="news__comment__li">--}}
-                                    {{--            <span class="news__comment__author">Sapa Shirmadov</span>--}}
-                                    {{--            <div class="news__comment__text">--}}
-                                    {{--                <p>That's amazing news</p>--}}
-                                    {{--                <span class="news__comment__date">Jan 25, 2022</span>--}}
-                                    {{--            </div>--}}
-                                    {{--        </li>--}}
                                 </ul>
                             </div>
 
                         </div>
-{{--                        <div contenteditable="true"--}}
-{{--                             id="message" class="div__textarea js__msg__textarea" data-placeholder="Type ...">--}}
-{{--                        </div>--}}
-
                         @auth
                         <form id="form">
                             <input type="hidden" name="news_id" value="{{$new->id}}">
@@ -133,23 +63,10 @@
                             <button class="news__comment__btn" type="submit">Отрпавить</button>
                         </form>
                         @endauth
-
-
-
-
                     </div>
-
-
-
                 </div>
-
                 @include('news.module.tags')
             </div>
-
-
-
-
-
         </div>
     </section>
 
