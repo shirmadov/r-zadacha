@@ -27,7 +27,7 @@ hr{
 /*Container*/
 .container{
     width: 100%;
-    max-width: 1200px;
+    max-width: 1200px !important;
     margin: 0 auto;
 }
 
