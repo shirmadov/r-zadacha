@@ -19,7 +19,7 @@
                 <span class="view__more__btn js__view__more__btn">Показать еще</span>
             </div>
 
-            @include('news.module.tags')
+            @include('news.module.tags',$tags)
 
         </div>
     </div>

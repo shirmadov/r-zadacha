@@ -117,15 +117,17 @@ Tags
 }
 
 .tag{
+    border:1px solid #000000;
     font-size: 1rem;
-    background-color:#66F0A8;
+    /*background-color:#66F0A8;*/
     padding: 4px 8px;
-    border-radius: 7px;
+    border-radius: 5px;
     font-weight: 500;
     margin-right: 10px;
     display: inline-block;
     margin-top: 7px;
     cursor: pointer;
+    color: #315BFF;
 }
 
 /**
@@ -203,9 +205,41 @@ News
     /*vertical-align:middle;*/
 }
 
-.search__bar{
-    border-radius:5px ;
+.search_main{
+    background-color: #2563eb;
+    border-radius:5px !important;
 }
+
+.search__bar{
+    border-radius:5px !important;
+    border: 1px solid #000000 !important;
+    outline: none !important;
+
+}
+
+.search__bar:focus{
+    outline: none !important;
+}
+
+.search__result{
+    position: absolute;
+    width: 600px;
+    height: auto;
+    background-color: #ffffff;
+    /*z-index: 9;*/
+
+    margin-top: 15px;
+    border-radius: 5px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    z-index: 1;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+}
+
 
 .view__more__btn{
     border-radius: 5px;
@@ -313,43 +347,52 @@ Comment
 }
 
 .news__comment__li{
-
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
 }
 
 .news__comment__author{
     display: block;
     font-size: 16px;
     font-weight: 700;
+    padding: 0;
 }
 
 .news__comment__text{
     margin-left: 10px;
+    padding: 0;
 }
 
 .news__comments__list{
 
 }
 
+*:focus {
+    outline: none !important;
+}
+
 .news__comment__date{
     font-size: 11px;
     color: #718096;
+    padding: 0;
 }
 
 .news__comment__form{
-    outline: none;
+    outline: none !important;
     /*border-radius: 5px;*/
     width: 500px;
 
-    /*border:solid 1px #ccc;*/
-    /*border-radius: 10px;*/
+    border:solid 1px #000000;
+    border-radius: 5px !important;
 }
 
-.news__comment__form:focus{
-    outline: none;
-}
+/*.news__comment__form:focus{*/
+/*    outline: none !important;*/
+/*}*/
 
 input:focus, textarea:focus, select:focus{
-    outline: none;
+    outline: none !important;
 }
 
 .news__comment__btn{
@@ -359,7 +402,40 @@ input:focus, textarea:focus, select:focus{
 }
 
 
+/**
+News Write
+ */
+.news__write{
+    max-width: 800px;
+    margin: 0 auto;
+}
 
+.news__write__form{
+
+}
+
+.news__write__card{
+    margin: 25px 0;
+}
+
+.news__write__label{
+    display: block;
+    font-size: 32px;
+    /*font-weight: 700;*/
+    margin-bottom: 10px;
+}
+
+.news__write__title{
+    border-radius: 5px !important;
+    width: 100%;
+
+}
+
+.news__write__textarea{
+    border-radius: 5px;
+    width: 100%;
+
+}
 
 
 

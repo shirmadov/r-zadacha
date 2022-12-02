@@ -7,10 +7,12 @@
 {{--                    <span style="font-size: 24px;">Red-news</span>--}}
                 </a>
             </div>
-            @if(Route::currentRouteName() != 'profile.edit')
+{{--            @dd(Route::currentRouteName())--}}
+            @if(Route::currentRouteName() == '/' || Route::currentRouteName() == 'news')
             <div class="search_main">
-                <input class="search__bar" type="text" placeholder="Поиск новости"/>
+                <input class="search__bar js__search__bar" type="text" placeholder="Поиск новости"/>
             </div>
+
             @endif
             <nav>
                 @if (Route::has('login'))
@@ -33,6 +35,18 @@
                                     <x-dropdown-link :href="route('profile.edit')">
                                         {{ __('Profile') }}
                                     </x-dropdown-link>
+
+                                    @if(\Auth()->user()->role_id == 1)
+
+                                    <x-dropdown-link :href="route('news.write')">
+                                        {{ __('Write') }}
+                                    </x-dropdown-link>
+
+                                    <x-dropdown-link :href="route('news.list')">
+                                        {{ __('List News') }}
+                                    </x-dropdown-link>
+
+                                    @endif
 
                                     <!-- Authentication -->
                                     <form method="POST" action="{{ route('logout') }}">
@@ -59,5 +73,9 @@
                 @endif
             </nav>
         </div>
+
+
+{{--        @include('layouts.header.search')--}}
+
     </div>
 </header>

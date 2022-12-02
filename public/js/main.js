@@ -5,12 +5,17 @@ $(document).ready(function () {
 
     console.log(app_url);
 
-    $('.view__more__btn').click(function () {
+    $('.view__more__btn').click(async function () {
 
-        let row__count = Number($('.js__row__count').val());
+        let row_count = Number($('.js__row__count').val());
         let all__count = Number($('.js__all__count').val());
         console.log($('.js__news__main'))
-        if (row__count < all__count) {
+        if (row_count < all__count) {
+            let url = app_url + '/view_more';
+            // let response = await sendData({row_count: row_count}, url)
+            //
+            // console.log(response)
+
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -18,13 +23,10 @@ $(document).ready(function () {
             });
 
 
-            console.log(row__count);
-
-            let url = app_url + '/view_more';
-            $.ajax({
+            await $.ajax({
                 type: "POST",
                 url: url,
-                data: {row_count: row__count},
+                data: {row_count:row_count} ,
                 dataType: 'json',
                 error: function (e) {
                     //window.location = url;
@@ -33,64 +35,127 @@ $(document).ready(function () {
                     $(".js__view__more__btn").text("Загрузка...");
                 },
                 success: function (response) {
-
                     $(".js__news__main:last").after(response.content).show().fadeIn("slow");
                     $(".js__view__more__btn").text("Показать еще");
-                    $(".js__row__count").val(row__count + Number(response.row_count))
-                    // $(".js__all__count")
+                    $(".js__row__count").val(row_count + Number(response.row_count))
                 }
             });
+
+            // $(".js__news__main:last").after(response.content).show().fadeIn("slow");
+            // $(".js__view__more__btn").text("Показать еще");
+            // $(".js__row__count").val(row_count + Number(response.row_count))
         }
     })
+
 
     $( "#form" ).submit(function( event ) {
 
         event.preventDefault();
-        // var data, xhr;
-        //
-        // data = new FormData(event.target);
-        //
-        // xhr = new XMLHttpRequest();
-        // let url = app_url + '/comment';
-        // console.log(url);
-        // xhr.open( 'POST', url, true );
-        // xhr.onreadystatechange = function ( response ) {
-        //     console.log(response);
-        // };
-        // xhr.send( data );
-
-
-        // var formData = new FormData(event.target)
-
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
 
-        let url = app_url + 'comment';
+        let url = app_url + '/comment';
         $.ajax({
             type: "POST",
             url: url,
-            data: {
-                row:"sadas"
+            data: $( this ).serialize(),
+            dataType: 'json',
+            error: function (e) {
+
+                //window.location = url;
+                console.log(e);
             },
+            beforeSend: function () {
+
+            },
+            success: function (response) {
+                    $('.news__comment__ul').prepend(response.content);
+                    $('.news__comment__form').val('');
+            }
+        });
+
+
+    });
+
+
+    $('.js__search__bar').on('input', async function(e){
+
+        let url = app_url + '/search';
+
+        console.log($(this).val() ==' ')
+
+        if( $(this).val() ){
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: {search:$(this).val()??" "} ,
+                dataType: 'json',
+                error: function (e) {
+                    //window.location = url;
+                },
+                beforeSend: function () {
+                    $(".js__view__more__btn").text("Загрузка...");
+                },
+                success: function (response) {
+                    console.log("Success")
+                    $('.search__result').remove()
+                    if(response.status == 1){
+                        $('.header__inner').after(response.content);
+                    }
+
+
+                }
+            })
+        }else{
+            $('.search__result').remove();
+        }
+
+
+
+    })
+
+    $(document).click(function() {
+        $('.search__result').remove();
+    });
+
+    async function sendData(data, url){
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+
+        await $.ajax({
+            type: "POST",
+            url: url,
+            data:data ,
             dataType: 'json',
             error: function (e) {
                 //window.location = url;
             },
             beforeSend: function () {
-                // $(".js__view__more__btn").text("Загрузка...");
+                $(".js__view__more__btn").text("Загрузка...");
             },
             success: function (response) {
-
-                // $(".js__news__main:last").after(response.content).show().fadeIn("slow");
-                // $(".js__view__more__btn").text("Показать еще");
-                // $(".js__row__count").val(row__count + Number(response.row_count))
-                // $(".js__all__count")
+                console.log(response)
+                return response
             }
         });
-    });
+    }
+
+
+
+
 
 
 })

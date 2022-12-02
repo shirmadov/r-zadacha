@@ -25,16 +25,13 @@
 @include('layouts.header.header')
 
 
+
 @if(Route::currentRouteName() == 'profile.edit')
     <main style="margin-top: 5rem">
         {{ $slot }}
     </main>
 @endif
-
-
-@include('layouts.header.header')
 @yield('content')
-{{--@yield('js')--}}
 
 <script src="{{asset('/js/main.js')}}"></script>
 

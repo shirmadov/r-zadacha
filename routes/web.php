@@ -18,7 +18,15 @@ use App\Http\Controllers\NewsController;
 Route::get('/',[NewsController::class, 'index'])->name('/');
 Route::post('view_more',[NewsController::class, 'viewMore'])->name('view_more');
 Route::get('news/{slug?}',[NewsController::class, 'show'])->name('news');
-Route::post('comment',[NewsController::class, 'comment'])->name('comment');
+Route::get('tags/{id?}',[NewsController::class, 'searchByTag'])->name('tags');
+Route::post('comment',[NewsController::class, 'comment'])->name('comment')->middleware('auth');
+Route::post('search',[NewsController::class, 'search'])->name('search');
+Route::get('news_write',[NewsController::class, 'writeNews'])->name('news.write')->middleware('auth');
+Route::get('news_list',[NewsController::class, 'listNews'])->name('news.list')->middleware('auth');
+Route::post('news_store',[NewsController::class, 'storeNews'])->name('news.store')->middleware('auth');
+Route::get('news_edit/{id?}',[NewsController::class, 'editNews'])->name('news.edit')->middleware('auth');
+Route::post('news_update',[NewsController::class, 'updateNews'])->name('news.update')->middleware('auth');
+Route::get('news_delete/{id?}',[NewsController::class, 'deleteNews'])->name('news.delete')->middleware('auth');
 
 
 
