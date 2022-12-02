@@ -10,6 +10,9 @@
     cp .env.example .env   -Установить доступ к БД
     php artisan key:generate
 
+    npm install
+    npm run dev
+
 ## Мигрируем и наполняем БД
 
     php artisan migrate
